@@ -1,0 +1,12 @@
+imagensEventos/*
+!imagensEventos/
+!imagensEventos/.gitkeep
+imagensAnuncio/*
+!imagensAnuncio/
+!imagensAnuncio/.gitkeep
+imagemNoticia/*
+!imagemNoticia/
+!imagemNoticia/.gitkeep
+fotoUsuarios/*
+!fotoUsuarios/
+!fotoUsuarios/.gitkeep
