@@ -1,0 +1,234 @@
+
+/* Global Styles */
+
+
+
+/* Team Members Section */
+.team-section {
+  padding: 30px 0;
+}
+
+.team-section h1 {
+  font-size: 36px;
+  color: var(--condo-navy);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.team-member {
+  background-color: var(--condo-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.3s;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.team-member:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.member-image {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  border: 3px solid var(--condo-teal);
+}
+
+.member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover .member-image img {
+  transform: scale(1.05);
+}
+
+.member-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--condo-navy);
+  margin: 0 0 5px;
+  padding: 0 20px;
+}
+
+.member-role {
+  font-size: 16px;
+  color: var(--condo-teal);
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding: 0 20px;
+}
+
+.separator {
+  width: 50px;
+  height: 3px;
+  background-color: var(--condo-teal);
+  margin: 0 auto 15px;
+}
+
+.member-description {
+  font-size: 15px;
+  color: #555;
+  padding: 0 20px;
+  line-height: 1.5;
+}
+
+/* Board of Directors Section */
+.board-section {
+  padding: 30px 0;
+}
+
+.board-section h1 {
+  font-size: 36px;
+  color: var(--condo-navy);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.board-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.board-member {
+  background-color: var(--condo-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.board-member:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.board-member .member-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 0;
+  margin: 0;
+  border: none;
+}
+
+.board-member .member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.board-member:hover .member-image img {
+  transform: scale(1.05);
+}
+
+.member-info {
+  padding: 20px;
+}
+
+.board-member .member-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--condo-navy);
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+.member-position {
+  font-size: 16px;
+  color: var(--condo-teal);
+  font-weight: 600;
+  margin: 0;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .nav-links {
+    margin-top: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .welcome-section h1 {
+    font-size: 28px;
+  }
+  
+  .welcome-section p {
+    font-size: 16px;
+  }
+  
+  .nav-buttons {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .section-description {
+    font-size: 16px;
+  }
+  
+  .team-members,
+  .board-members {
+    grid-template-columns: 1fr;
+  }
+  
+  .team-section h1,
+  .board-section h1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .welcome-section h1 {
+    font-size: 24px;
+  }
+  
+  .nav-button {
+    padding: 20px;
+  }
+  
+  .nav-button h2 {
+    font-size: 18px;
+  }
+  
+  .news-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .professionals-grid, 
+  .events-grid, 
+  .news-grid,
+  .board-members {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,144 @@
+.info-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 5px;
+    margin-top: 30px;
+  }
+  
+  .info-card {
+    background-color: var(--condo-white);
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 15px;
+    /* min-height: 200px; */
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.3s;
+  }
+  
+
+  .info-card-grande{
+    background-color: var(--condo-white);
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 10px;
+    /* min-height: 200px; */
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.3s;
+  }
+
+  .info-card-grande > div{
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    text-align: center;
+  }
+  .info-card:hover {
+  
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+   
+  }
+  
+  .phone-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--condo-navy);
+    
+  }
+  
+  .service-name {
+    font-size: 22px;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  .icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--condo-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .icon-circle i {
+    font-size: 24px;
+    color: white;
+  }
+  .useful-contacts {
+    margin-top: 30px;
+    max-width: 800px;
+  }
+  
+  .contact-item {
+    margin-bottom: 20px;
+  }
+  
+  .contact-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--condo-navy);
+    margin-bottom: 8px;
+  }
+  
+  .contact-details {
+    color: #555;
+    line-height: 1.6;
+    margin-left: 0;
+  }
+  
+  .contact-phone, .contact-email {
+    display: block;
+    margin-top: 4px;
+  }
+  
+  .contact-phone {
+    color: var(--condo-teal);
+  }
+  
+  .contact-email {
+    color: var(--condo-teal);
+    font-style: italic;
+  }
+  
+  .contact-separator {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 20px 0;
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-name {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .info-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .phone-number {
+      font-size: 30px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .info-cards-grid {
+      grid-template-columns: 1fr;
+    }
+  }

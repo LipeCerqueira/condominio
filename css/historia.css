@@ -1,0 +1,110 @@
+ .history-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            color: var(--condo-navy);
+            margin-bottom: 15px;
+        }
+
+        .history-content {
+            background-color: var(--condo-white);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .history-image {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .history-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        .history-text p {
+            margin-bottom: 20px;
+        }
+
+        .history-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 25px;
+            border-top: 2px solid var(--condo-teal);
+            font-size: 14px;
+            color: #666;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-info i {
+            color: var(--condo-teal);
+            margin-right: 8px;
+        }
+
+        .last-update {
+            display: flex;
+            align-items: center;
+        }
+
+        .last-update i {
+            color: var(--condo-teal);
+            margin-right: 8px;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--condo-navy);
+        }
+
+        .update-date {
+            font-weight: 500;
+            color: var(--condo-navy);
+        }
+
+        @media (max-width: 768px) {
+            .history-container {
+                padding: 20px 15px;
+            }
+
+            .history-content {
+                padding: 25px;
+            }
+
+            .page-header h1 {
+                font-size: 28px;
+            }
+
+            .history-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .history-image {
+                height: 200px;
+            }
+        }

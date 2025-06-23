@@ -1,0 +1,117 @@
+
+  
+  /* Classified Ad Cards Styles */
+  .classified-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    
+  }
+  
+  .classified-card {
+    background-color: var(--condo-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+  
+  .classified-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .classified-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .classified-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .classified-title {
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--condo-navy);
+    margin-bottom: 10px;
+  }
+  
+  .classified-price {
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--condo-teal);
+    margin-bottom: 15px;
+  }
+  
+  .classified-description {
+    font-size: 25px;
+    color: #555;
+    margin-bottom: 15px;
+    flex-grow: 1;
+  }
+  
+  .classified-contact {
+    display: flex;
+    align-items: center;
+    font-size: 23px;
+    font-weight: 500;
+    color: var(--condo-navy);
+    margin-bottom: 15px;
+  }
+  
+  .contact-icon {
+    margin-right: 8px;
+    color: var(--condo-teal);
+  }
+  
+  .classified-date {
+    font-size: 14px;
+    color: #888;
+    text-align: right;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+  }
+  
+  .category-label {
+    display: inline-block;
+    background-color: var(--condo-navy);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .card-container {
+    position: relative;
+  }
+
+  #imoveis{
+    margin-left: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .classified-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .classified-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }

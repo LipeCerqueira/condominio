@@ -1,0 +1,173 @@
+.gallery-container {
+  margin-top: 30px;
+}
+
+.gallery-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  font-size: 18px;
+  color: #555;
+}
+
+.send-photo-btn {
+  background-color: var(--condo-teal);
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s, background-color 0.3s;
+  text-align: center;
+  display: inline-block;
+  margin: 20px auto;
+}
+
+.send-photo-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background-color: #14b58a;
+}
+
+.photo-button-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.gerenciarBtn{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+  .btn {
+    display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(255, 94, 98, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+  
+
+
+.gallery-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.gallery-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* File upload styling */
+#fileInput {
+  display: flex;
+}
+
+/* Estilo do botão customizado */
+#customButton {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#customButton:hover {
+  background-color: #45a049;
+}
+
+#foto {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.curtir-form {
+  margin-top: 10px;
+}
+
+.curtir-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ff5e62, #ff9966);
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(255, 94, 98, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.curtir-btn i {
+  font-size: 16px;
+}
+
+.curtir-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 94, 98, 0.4);
+  background: linear-gradient(135deg, #ff3c3c, #ff7a7a);
+}
+
+
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+  }
+  
+  .gallery-description {
+    font-size: 16px;
+  }
+  
+  .send-photo-btn {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
+  #foto{
+    opacity: 0%;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #foto{
+    opacity: 0%;
+  }
+}

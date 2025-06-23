@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login App</title>
+    <title>Portal Condominios</title>
     <meta name="description" content="Lovable Generated Project" />
     <meta name="author" content="Lovable" />
     <meta property="og:image" content="/og-image.png" />
@@ -54,13 +54,13 @@
       
       <div class="welcome-text">
         <h1>Bem-vindo ao</h1>  
-		  <h1>Portal <b>Villa Dom Pedro</b></h1>
+		  <h1>Portal <b>Portal Condominios</b></h1>
       </div>
       <div class="totUser">
-            <h2>SOMOS EM  <?php while ($qtdeUsuario = mysqli_fetch_assoc($consulta)) {
+            <h2>SOMOS <?php while ($qtdeUsuario = mysqli_fetch_assoc($consulta)) {
                 echo $qtdeUsuario["qtdeUsuario"];
               } ?> CONECTADOS.</h2>
-        <h2>JUNTOS SOMOS MAIS FORTES.</h2>
+        <h2>JUNTOS! MAIS FORTES!</h2>
       </div>
   
       <div class="buttons-container">
