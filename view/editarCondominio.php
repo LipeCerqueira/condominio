@@ -1,101 +1,15 @@
 <?php
   
-
 @session_start();
-  require_once("../Model/connect.php");
 
-    $conn = $con;
 
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
+require("../model/connect.php");
+extract($_GET);
 
-// Verificar se veio um ID por GET
-if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-    die("ID inválido.");
-}
+$consulta = mysqli_query($con, "SELECT * FROM `condominios` WHERE id = '$id'");
+$condominio = mysqli_fetch_assoc($consulta);
 
-$id = intval($_GET['id']);
 
-// Processamento de atualização
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome_fantasia = $_POST['nome_fantasia'];
-    $razao_social = $_POST['razao_social'];
-    $cnpj = $_POST['cnpj'];
-    $inscricao_estadual = $_POST['inscricao_estadual'];
-    $cep = $_POST['cep'];
-    $endereco = $_POST['endereco'];
-    $numero = $_POST['numero'];
-    $complemento = $_POST['complemento'];
-    $bairro = $_POST['bairro'];
-    $cidade = $_POST['cidade'];
-    $estado = $_POST['estado'];
-    $pais = $_POST['pais'];
-
-    $responsaveis = [];
-    $telefones = [];
-    $emails = [];
-
-    for ($i = 1; $i <= 5; $i++) {
-        $responsaveis[] = $POST["responsavel_administrativo$i"] ?? null;
-        $telefones[] = $POST["telefone$i"] ?? null;
-        $emails[] = $POST["email$i"] ?? null;
-    }
-
-    $status = $_POST['status'];
-
-    $sql = "UPDATE condominios SET 
-                nome_fantasia = ?, razao_social = ?, cnpj = ?, inscricao_estadual = ?, cep = ?, endereco = ?, numero = ?, complemento = ?,
-                bairro = ?, cidade = ?, estado = ?, pais = ?,
-                responsavel_administrativo_1 = ?, telefone_1 = ?, email_1 = ?,
-                responsavel_administrativo_2 = ?, telefone_2 = ?, email_2 = ?,
-                responsavel_administrativo_3 = ?, telefone_3 = ?, email_3 = ?,
-                responsavel_administrativo_4 = ?, telefone_4 = ?, email_4 = ?,
-                responsavel_administrativo_5 = ?, telefone_5 = ?, email_5 = ?,
-                status = ?
-            WHERE id = ?";
-
-    $stmt = $conn->prepare($sql);
-    if (!$stmt) {
-        die("Erro ao preparar statement: " . $conn->error);
-    }
-
-    $stmt->bind_param(
-        "sssssssssssssssssssssssssssi",
-        $nome_fantasia, $razao_social, $cnpj, $inscricao_estadual, $cep, $endereco, $numero, $complemento,
-        $bairro, $cidade, $estado, $pais,
-        $responsaveis[0], $telefones[0], $emails[0],
-        $responsaveis[1], $telefones[1], $emails[1],
-        $responsaveis[2], $telefones[2], $emails[2],
-        $responsaveis[3], $telefones[3], $emails[3],
-        $responsaveis[4], $telefones[4], $emails[4],
-        $status,
-        $id
-    );
-
-    if ($stmt->execute()) {
-        echo "<p style='color:green;'>Condomínio atualizado com sucesso!</p>";
-    } else {
-        echo "<p style='color:red;'>Erro ao atualizar: " . $stmt->error . "</p>";
-    }
-
-    $stmt->close();
-}
-
-// Carregar os dados existentes
-$sql = "SELECT * FROM condominios WHERE id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows == 0) {
-    die("Condomínio não encontrado.");
-}
-
-$row = $result->fetch_assoc();
-$stmt->close();
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -121,62 +35,63 @@ $conn->close();
 ?>
 <h2>Atualizar Condomínio</h2>
 
-<form method="post">
+<form action="../Controller/editarCondominio.act.php" method="post" enctype="multipart/form-data">
     <label>Nome Fantasia:</label>
-    <input type="text" name="nome_fantasia" value="<?= htmlspecialchars($row['nome_fantasia']) ?>" required>
+    <input type="text" name="nome_fantasia" value="<?= $condominio["nome_fantasia"] ?>" required>
 
     <label>Razão Social:</label>
-    <input type="text" name="razao_social" value="<?= htmlspecialchars($row['razao_social']) ?>">
+    <input type="text" name="razao_social" value="<?= $condominio["razao_social"] ?>">
+    <input type="hidden" name="id" value="<?= $condominio["id"] ?>">
 
     <label>CNPJ:</label>
-    <input type="text" name="cnpj" value="<?= htmlspecialchars($row['cnpj']) ?>">
+    <input type="text" name="cnpj" value="<?= $condominio["cnpj"] ?>">
 
     <label>Inscrição Estadual:</label>
-    <input type="text" name="inscricao_estadual" value="<?= htmlspecialchars($row['inscricao_estadual']) ?>">
+    <input type="text" name="inscricao_estadual" value="<?=$condominio["inscricao_estadual"] ?>">
 
     <label>CEP:</label>
-    <input type="text" name="cep" value="<?= htmlspecialchars($row['cep']) ?>">
+    <input type="text" name="cep" value="<?= $condominio["cep"] ?>">
 
     <label>Endereço:</label>
-    <input type="text" name="endereco" value="<?= htmlspecialchars($row['endereco']) ?>">
+    <input type="text" name="endereco" value="<?= $condominio["endereco"]?>">
 
     <label>Número:</label>
-    <input type="text" name="numero" value="<?= htmlspecialchars($row['numero']) ?>">
+    <input type="text" name="numero" value="<?= $condominio["numero"] ?>">
 
     <label>Complemento:</label>
-    <input type="text" name="complemento" value="<?= htmlspecialchars($row['complemento']) ?>">
+    <input type="text" name="complemento" value="<?= $condominio["complemento"] ?>">
 
     <label>Bairro:</label>
-    <input type="text" name="bairro" value="<?= htmlspecialchars($row['bairro']) ?>">
+    <input type="text" name="bairro" value="<?= $condominio["bairro"] ?>">
 
     <label>Cidade:</label>
-    <input type="text" name="cidade" value="<?= htmlspecialchars($row['cidade']) ?>">
+    <input type="text" name="cidade" value="<?= $condominio["cidade"]?>">
 
     <label>Estado:</label>
-    <input type="text" name="estado" maxlength="2" value="<?= htmlspecialchars($row['estado']) ?>">
+    <input type="text" name="estado" maxlength="2" value="<?= $condominio["estado"] ?>">
 
     <label>País:</label>
-    <input type="text" name="pais" value="<?= htmlspecialchars($row['pais']) ?>">
+    <input type="text" name="pais" value="<?= $condominio["pais"] ?>">
 
     <?php for ($i = 1; $i <= 5; $i++) { ?>
         <div class="responsavel-block">
             <h4>Responsável Administrativo <?= $i; ?></h4>
 
             <label>Nome:</label>
-            <input type="text" name="responsavel_administrativo_<?= $i; ?>" value="<?= htmlspecialchars($row["responsavel_administrativo_$i"]) ?>">
+            <input type="text" name="responsavel_administrativo_<?= $i; ?>" value="<?= $condominio["responsavel_administrativo_$i"] ?>">
 
             <label>Telefone:</label>
-            <input type="text" name="telefone_<?= $i; ?>" value="<?= htmlspecialchars($row["telefone_$i"]) ?>">
+            <input type="text" name="telefone_<?= $i; ?>" value="<?= $condominio["telefone_$i"] ?>">
 
             <label>Email:</label>
-            <input type="email" name="email_<?= $i; ?>" value="<?= htmlspecialchars($row["email_$i"]) ?>">
+            <input type="email" name="email_<?= $i; ?>" value="<?= $condominio["email_$i"] ?>">
         </div>
     <?php } ?>
 
     <label>Status:</label>
     <select name="status">
-        <option value="Ativo" <?= ($row['status'] == 'Ativo') ? 'selected' : ''; ?>>Ativo</option>
-        <option value="Inativo" <?= ($row['status'] == 'Inativo') ? 'selected' : ''; ?>>Inativo</option>
+        <option value="Ativo" <?= ($condominio['status'] == 'Ativo') ? 'selected' : ''; ?>>Ativo</option>
+        <option value="Inativo" <?= ($condominio['status'] == 'Inativo') ? 'selected' : ''; ?>>Inativo</option>
     </select>
 
     <button type="submit">Salvar Alterações</button>

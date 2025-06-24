@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../css/setup.css">
+
 <?php
 // Processamento do formulário
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
