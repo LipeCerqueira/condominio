@@ -52,6 +52,7 @@ WHERE status = 'Aguardando Aprovação'");
         <ul>
           <li><a href="adm.php"><i class="fas fa-home"></i> Dashboard</a></li>
           <li><a href="listarCondominio.php"><i class="fas fa-home"></i> Condóminio</a></li>
+          <li><a href="listarUnidade.php"><i class="fas fa-home"></i> Unidades</a></li>
           <li><a href="gerenciamento.php"><i class="fas fa-users"></i> Usuários </a></li>
           <li><a href="profissionais.php"><i class="fas fa-briefcase"></i> Profissionais</a></li>
           <li><a href="adicionarServico.php"><i class="fas fa-plus"></i> Adicionar Serviço</a></li>
@@ -102,8 +103,17 @@ WHERE status = 'Aguardando Aprovação'");
         <i class="fas fa-home"></i>
             </div>
             <h3>Condominios</h3>
-            <p>Gerencie os usuários do sistema.</p>
+            <p>Gerencie os condomínios do sistema.</p>
           </a>
+       
+          <a href="listarUnidade.php" class="action-card">
+            <div class="action-icon">
+        <i class="fas fa-home"></i>
+            </div>
+            <h3>Unidade</h3>
+            <p>Gerencie as Unidades do sistema.</p>
+          </a>
+       
            <a href="gerenciamento.php" class="action-card">
             <div class="action-icon">
               <i class="fas fa-users"></i>
