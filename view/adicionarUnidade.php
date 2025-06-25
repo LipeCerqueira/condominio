@@ -23,6 +23,11 @@
 
   require("partes/header.php");
 
+
+  require("../model/connect.php");
+
+  $busca = mysqli_query($con,"SELECT * FROM `condominios` WHERE status = 'Ativo'");
+ 
 ?>
 <h2>Adicionar Unidade</h2>
 
@@ -35,7 +40,21 @@
   
 
     <label>Condominio:</label>
-    <input type="text" name="condominio" maxlength="10">
+     <select name="condominio" required>
+        <option value="" disabled selected>SELECIONE UM CONDOMÍNIO</option>
+        <?php 
+         while($condominio = mysqli_fetch_assoc($busca)){
+
+        
+        
+        ?>
+        <option value="<?=$condominio['id']?>" required><?=$condominio['nome_fantasia']?></option>
+        <?php 
+         }
+        
+        ?>
+  
+    </select>
 
     <label>Proprietário</label>
     <input type="text" name="proprietário" maxlength="10">
