@@ -27,6 +27,7 @@
   require("../model/connect.php");
 
   $busca = mysqli_query($con,"SELECT * FROM `condominios` WHERE status = 'Ativo'");
+  $busca2 = mysqli_query($con,"SELECT * FROM `situacao_unidade`");
  
 ?>
 <h2>Adicionar Unidade</h2>
@@ -75,7 +76,22 @@
     <input type="text" name="vaga4" maxlength="20">
 
     <label>Situação Unidade:</label>
-    <input type="text" name="sitUnidade" maxlength="50">
+      <select name="sitUnidade" required>
+        <option value="" disabled selected>SELECIONE</option>
+        <?php 
+         while($situacao = mysqli_fetch_assoc($busca2)){
+
+        
+        
+        ?>
+        <option value="<?=$situacao['id_situacao']?>" required><?=$situacao['nome_situacao']?></option>
+        <?php 
+         }
+        
+        ?>
+  
+    </select>
+ 
 
     <label>Ocupante:</label>
     <input type="text" name="ocupante" maxlength="50">
