@@ -33,7 +33,7 @@
 
 <form action="../Controller/adicionarUnidade.act.php" method="post" enctype="multipart/form-data">
     <label>Bloco:</label>
-    <input type="text" name="bloco"  required maxlength="10">
+    <input type="text" name="bloco"  required maxlength="30">
 
     <label>Unidade:</label>
     <input type="text" name="unidade" maxlength="10">

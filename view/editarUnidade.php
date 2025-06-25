@@ -69,7 +69,7 @@
 
     <form action="../Controller/editarUnidade.act.php" method="post" enctype="multipart/form-data">
         <label>Bloco:</label>
-        <input type="text" name="bloco" value="<?= $unidade['bloco'] ?>" required maxlength="10">
+        <input type="text" name="bloco" value="<?= $unidade['bloco'] ?>" required maxlength="30">
         <input type="hidden" name="id" value="<?= $unidade['id'] ?>">
 
         <label>Unidade:</label>
