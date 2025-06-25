@@ -49,9 +49,9 @@ if (isset($_SESSION["msg"])) {
                         <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                         <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                     </svg>
-                    Administração de Evento
+                    Administração de Blocos/Unidades
                 </div>
-                <a href="cad_condo.php" class="admin-button outline">Adicionar Condomínio</a>
+                <a href="cad_condo.php" class="admin-button outline">Adicionar Blocos/Unidades</a>
                 <a href="adm.php" class="admin-button outline">Voltar</a>
             </div>
 
