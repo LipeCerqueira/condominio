@@ -113,6 +113,13 @@ WHERE status = 'Aguardando Aprovação'");
             <h3>Unidade</h3>
             <p>Gerencie as Unidades do sistema.</p>
           </a>
+          <a href="painelSituacao.php" class="action-card">
+            <div class="action-icon">
+        <i class="fas fa-home"></i>
+            </div>
+            <h3>Situação</h3>
+            <p>Gerencie as Situações das Unidades do sistema.</p>
+          </a>
        
            <a href="gerenciamento.php" class="action-card">
             <div class="action-icon">
