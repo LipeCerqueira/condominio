@@ -63,7 +63,7 @@
     $busca = mysqli_query($con, "SELECT * FROM `condominios` WHERE status = 'Ativo'");
     $consulta = mysqli_query($con, "SELECT * FROM `unidades` WHERE id = '$id'");
     $unidade = mysqli_fetch_assoc($consulta);
-     $busca2 = mysqli_query($con,"SELECT * FROM `situacao_unidade`");
+     $busca2 = mysqli_query($con,"SELECT * FROM `situacao_unidade` WHERE status = 1");
 
     ?>
     <h2>Atualizar Unidade</h2>
@@ -118,7 +118,7 @@
         <input type="text" name="vaga4" maxlength="20" value="<?= $unidade['vaga_garagem4'] ?>">
 
         <label>Situação Unidade:</label>
-       <label>Situação Unidade:</label>
+      
       <select name="sitUnidade" required>
         <option value="" disabled selected>SELECIONE</option>
         <?php 

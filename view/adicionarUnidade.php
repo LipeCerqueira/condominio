@@ -27,7 +27,7 @@
   require("../model/connect.php");
 
   $busca = mysqli_query($con,"SELECT * FROM `condominios` WHERE status = 'Ativo'");
-  $busca2 = mysqli_query($con,"SELECT * FROM `situacao_unidade`");
+  $busca2 = mysqli_query($con,"SELECT * FROM `situacao_unidade` WHERE status = 1");
  
 ?>
 <h2>Adicionar Unidade</h2>

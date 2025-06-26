@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="../css/gerenciamento.css">
     <script src="../JS/sweetalert.js"></script>
     <script>
-        // mudarStatus = (id, status) => {
-        //     window.location.href = '../controller/mudarStatussituacao.act.php?id=' + id + '&status=' + status;
-        // }
+        mudarStatus = (id, status, local) => {
+            window.location.href = '../controller/mudarStatusSituacao.act.php?id=' + id + '&status=' + status + '&local=' + local;
+        }
         editar = (id) => {
             window.location.href = '../view/editarSituacao.php?id=' + id;
         }
@@ -51,7 +51,7 @@ if (isset($_SESSION["msg"])) {
                     </svg>
                     Administração de Situação Comercial
                 </div>
-                <a href="adicionarSituacao.php" class="admin-button outline">Adicionar Situacão Comercial</a>
+                <a href="adicionarSituacao.php" class="admin-button outline">Adicionar Situação Comercial</a>
                 <a href="adm.php" class="admin-button outline">Voltar</a>
             </div>
 
@@ -66,7 +66,7 @@ if (isset($_SESSION["msg"])) {
                                 <!-- <th>situacao</th>
 
                                 <th>Situação</th> -->
-                                <!-- <th>Status</th> -->
+                                <th>Status</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
@@ -86,18 +86,18 @@ if (isset($_SESSION["msg"])) {
 
 
                                     <td><?= $situacao['nome_situacao'] ?></td>
-                                   
 
-                                    <!-- <td>
+
+                                    <td>
                                         <?php
-                                        // if ($situacao['status'] == 'Inativo') {
-                                        //     echo '<span class="status-badge inactive">Inativo</span>';
-                                        // } else {
-                                        //     echo '<span class="status-badge active">Ativo</span>';
-                                        // }
+                                        if ($situacao['status'] == '0') {
+                                            echo '<span class="status-badge inactive">Inativo</span>';
+                                        } else {
+                                            echo '<span class="status-badge active">Ativo</span>';
+                                        }
                                         ?>
 
-                                    </td> -->
+                                    </td>
                                     <td class="actions-cell">
                                         <button class="admin-button small outline" onclick="editar(<?= $situacao['id_situacao'] ?>)">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
@@ -107,19 +107,26 @@ if (isset($_SESSION["msg"])) {
                                             Editar
                                         </button>
                                         <?php
-                //                         if ($situacao['status'] == 'Ativo') {
-                //                             echo '<button class="admin-button small destructive" onclick="mudarStatus(' . $situacao['id'] . ', \'Ativo\')">
-                // <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
-                //     <path d="M12 20h9"></path>
-                //     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                // </svg> Inativar</button>';
-                //                         } else {
-                //                             echo '<button class="admin-button small outline" onclick="mudarStatus(' . $situacao['id'] . ', \'Inativo\')">
-                // <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
-                //     <path d="M12 20h9"></path>
-                //     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                // </svg> Ativar</button>';
-                //                         }
+                                        $local = "comercial";
+                                        if ($situacao['status'] == '1') {
+                                            echo '<button class="admin-button small destructive" onclick="mudarStatus(' 
+        . $situacao['id_situacao'] . ', ' 
+        . $situacao['status'] . ', \'' 
+        . $local . '\')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+        </svg> Inativar</button>';
+                                        } else {
+                                           echo '<button class="admin-button small destructive" onclick="mudarStatus(' 
+        . $situacao['id_situacao'] . ', ' 
+        . $situacao['status'] . ', \'' 
+        . $local . '\')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+        </svg> Ativar</button>';
+                                        }
                                         ?>
 
                                     </td>
