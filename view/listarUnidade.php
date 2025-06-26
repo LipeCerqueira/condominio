@@ -76,7 +76,7 @@ if (isset($_SESSION["msg"])) {
                             require_once("../model/connect.php");
 
                             $unidades = mysqli_query($con, "SELECT u.*, s.* FROM unidades U 
-                            INNER JOIN situacao_unidade s ON s.id_situacao = u.situacao_unidade");
+                            LEFT JOIN situacao_unidade s ON s.id_situacao = u.situacao_unidade");
 
 
 
