@@ -75,7 +75,8 @@ if (isset($_SESSION["msg"])) {
 
                             require_once("../model/connect.php");
 
-                            $unidades = mysqli_query($con, "SELECT * FROM `unidades` ");
+                            $unidades = mysqli_query($con, "SELECT u.*, s.* FROM unidades U 
+                            INNER JOIN situacao_unidade s ON s.id_situacao = u.situacao_unidade");
 
 
 
@@ -87,7 +88,7 @@ if (isset($_SESSION["msg"])) {
 
                                     <td><?= $unidade['bloco'] ?></td>
                                     <td class="name-cell"><?= $unidade['unidade'] ?></td>
-                                    <td><?= $unidade['situacao_unidade'] ?></td>
+                                    <td><?= $unidade['nome_situacao'] ?></td>
 
                                     <!-- <td>
                                         <?php
