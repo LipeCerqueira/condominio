@@ -18,6 +18,9 @@ if ($local == "comercial") {
 
     mysqli_query($con, "UPDATE `situacao_unidade` set status = '$status' WHERE id_situacao = '$id'");
     $destino = "../view/listarSituacao.php";
+}else if($local == "financeira"){
+    mysqli_query($con, "UPDATE `situacao_financeira` set status_financeiro = '$status' WHERE id_situacao_financeira = '$id'");
+    $destino = "../view/listarSituacaoFinanceira.php";
 }
 
 
