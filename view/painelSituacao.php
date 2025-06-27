@@ -63,7 +63,7 @@ if (isset($_SESSION["msg"])) {
                  Situação Financeira
             </div>
           </a>
-          <a href="" class="service-button">
+          <a href="listarSituacaoOcupacao.php" class="service-button">
             <div>
            
                  Situação de Ocupação

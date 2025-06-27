@@ -29,6 +29,7 @@
   $busca = mysqli_query($con,"SELECT * FROM `condominios` WHERE status = 'Ativo'");//buscar condominios
   $busca2 = mysqli_query($con,"SELECT * FROM `situacao_unidade` WHERE status = 1");//Situacao Comercial
   $busca3= mysqli_query($con,"SELECT * FROM `situacao_financeira` WHERE status_financeiro = 1");//Situacao Financeira
+  $busca4= mysqli_query($con,"SELECT * FROM `situacao_ocupacao` WHERE status_ocupacao = 1");//Situacao Ocupacao
  
 ?>
 <h2>Adicionar Unidade</h2>
@@ -95,7 +96,20 @@
  
 
     <label>Ocupante:</label>
-    <input type="text" name="ocupante" maxlength="50">
+    <select name="ocupante" required>
+        <option value="" disabled selected>SELECIONE</option>
+        <?php 
+         while($situacaoOcupacao = mysqli_fetch_assoc($busca4)){
+
+        
+        
+        ?>
+        <option value="<?=$situacaoOcupacao['id_ocupacao']?>" required><?=$situacaoOcupacao['nome_ocupacao']?></option>
+        <?php 
+         }
+        
+        ?>
+    </select>
 
     <label>Situação Financeira:</label>
      <select name="sitFinanceira" required>

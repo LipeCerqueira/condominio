@@ -65,6 +65,7 @@
     $unidade = mysqli_fetch_assoc($consulta);
      $busca2 = mysqli_query($con,"SELECT * FROM `situacao_unidade` WHERE status = 1");
        $busca3= mysqli_query($con,"SELECT * FROM `situacao_financeira` WHERE status_financeiro = 1");//Situacao Financeira
+         $busca4= mysqli_query($con,"SELECT * FROM `situacao_ocupacao` WHERE status_ocupacao = 1");//Situacao Ocupacao
 
     ?>
     <h2>Atualizar Unidade</h2>
@@ -142,7 +143,25 @@
     </select>
 
         <label>Ocupante:</label>
-        <input type="text" name="ocupante" maxlength="50" value="<?= $unidade['ocupante_tipo'] ?>">
+       <select name="ocupante" required>
+        
+        <?php 
+         while($situacaoOcupacao = mysqli_fetch_assoc($busca4)){
+
+        
+        
+        ?>
+        <option value="<?=$situacaoOcupacao['id_ocupacao']?>" <?php
+                                                        if ($situacaoOcupacao['id_ocupacao'] == $unidade['ocupante_tipo']) {
+                                                            echo "selected";
+                                                        }
+
+                                                        ?>><?=$situacaoOcupacao['nome_ocupacao']?></option>
+        <?php 
+         }
+        
+        ?>
+    </select>
 
         <label>Situação Financeira:</label>
 
