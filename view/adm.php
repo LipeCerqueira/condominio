@@ -100,28 +100,35 @@ WHERE status = 'Aguardando Aprovação'");
         <div class="action-cards">
           <a href="listarCondominio.php" class="action-card">
             <div class="action-icon">
-        <i class="fas fa-home"></i>
+              <i class="fas fa-home"></i>
             </div>
             <h3>Condominios</h3>
             <p>Gerencie os condomínios do sistema.</p>
           </a>
-       
+
           <a href="listarUnidade.php" class="action-card">
             <div class="action-icon">
-        <i class="fas fa-home"></i>
+              <i class="fas fa-home"></i>
             </div>
             <h3>Unidade</h3>
             <p>Gerencie as Unidades do sistema.</p>
           </a>
+          <a href="painelDependencias.php" class="action-card">
+            <div class="action-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <h3>Dependência interna e Agendamentos</h3>
+            <p>Gerencie as Dependência e seus Agendamentos.</p>
+          </a>
           <a href="painelSituacao.php" class="action-card">
             <div class="action-icon">
-        <i class="fas fa-home"></i>
+              <i class="fas fa-home"></i>
             </div>
             <h3>Situação</h3>
             <p>Gerencie as Situações das Unidades do sistema.</p>
           </a>
-       
-           <a href="gerenciamento.php" class="action-card">
+
+          <a href="gerenciamento.php" class="action-card">
             <div class="action-icon">
               <i class="fas fa-users"></i>
             </div>
@@ -205,7 +212,7 @@ WHERE status = 'Aguardando Aprovação'");
           </a>
           <a href="gerenciarGaleria.php" class="action-card">
             <div class="action-icon">
-                 <i class="fa-regular fa-image"></i>
+              <i class="fa-regular fa-image"></i>
             </div>
             <h3>Galeria de Fotos</h3>
             <p>Gerenciar galeria de Fotos </p>
