@@ -57,7 +57,7 @@ if (isset($_SESSION["msg"])) {
               Dependência Internas
             </div>
           </a>
-          <a href="listarSituacaoFinanceira.php" class="service-button">
+          <a href="listarAgendamentos.php" class="service-button">
             <div>
    
                  Agendamentos
