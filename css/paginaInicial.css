@@ -549,3 +549,75 @@ footer {
   }
 
 }
+
+
+/* ------------------------CALENDARIO------------------------------ */
+
+table.calendario {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+table.calendario th,
+table.calendario td {
+  border: 1px solid #444;
+  width: 14.28%;
+  vertical-align: top;
+  height: 100px;
+  padding: 4px;
+}
+
+table.calendario th {
+  background-color: var(--condo-navy);
+  color: #fff;
+}
+
+.dom {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.sab {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.cabecalho {
+  background: var(--condo-teal);
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+
+
+  font-size: 18px;
+}
+
+.cabecalho input{
+  height: 30px;
+  border-radius: 5px;
+}
+.cabecalho select{
+  height: 30px;
+  border-radius: 5px;
+}
+.cabecalho button{
+  height: 30px;
+  border-radius: 5px;
+  width: 50px;
+  font-size: 15x;
+  margin-left: 20px;
+  background-color: var(--condo-navy);
+  color: #ffffff;
+}
+
+.evento {
+  background: #dff0d8;
+  border-left: 3px solid #3c763d;
+  padding: 2px;
+  margin: 2px 0;
+  font-size: 0.8em;
+  text-align: left;
+}

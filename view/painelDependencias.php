@@ -63,7 +63,7 @@ if (isset($_SESSION["msg"])) {
                  Agendamentos
             </div>
           </a>
-          <a href="listarSituacaoOcupacao.php" class="service-button">
+          <a href="calendario.php" class="service-button">
             <div>
            
                  Calendário

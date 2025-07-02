@@ -51,7 +51,7 @@ WHERE status = 'Aguardando Aprovação'");
       <nav class="sidebar-nav">
         <ul>
           <li><a href="adm.php"><i class="fas fa-home"></i> Dashboard</a></li>
-          <li><a href="listarCondominio.php"><i class="fas fa-home"></i> Condóminio</a></li>
+          <li><a href="listarCondominio.php">  <i class="fa-solid fa-building"></i> Condóminio</a></li>
           <li><a href="listarUnidade.php"><i class="fas fa-home"></i> Unidades</a></li>
           <li><a href="gerenciamento.php"><i class="fas fa-users"></i> Usuários </a></li>
           <li><a href="profissionais.php"><i class="fas fa-briefcase"></i> Profissionais</a></li>
@@ -100,136 +100,184 @@ WHERE status = 'Aguardando Aprovação'");
         <div class="action-cards">
           <a href="listarCondominio.php" class="action-card">
             <div class="action-icon">
-              <i class="fas fa-home"></i>
+             <i class="fa-solid fa-building"></i>
             </div>
-            <h3>Condominios</h3>
-            <p>Gerencie os condomínios do sistema.</p>
+            <div class="descricao-card">
+              <h3>Condominios</h3>
+              <p>Gerencie os condomínios do sistema.</p>
+            </div>
+
           </a>
 
           <a href="listarUnidade.php" class="action-card">
             <div class="action-icon">
-              <i class="fas fa-home"></i>
+           <i class="fa-solid fa-house"></i>
             </div>
-            <h3>Unidade</h3>
-            <p>Gerencie as Unidades do sistema.</p>
+            <div class="descricao-card">
+              <h3>Unidade</h3>
+              <p>Gerencie as Unidades do sistema.</p>
+            </div>
+
           </a>
           <a href="painelDependencias.php" class="action-card">
             <div class="action-icon">
-              <i class="fas fa-home"></i>
+            <i class="fa-solid fa-store"></i>
             </div>
-            <h3>Dependência interna e Agendamentos</h3>
-            <p>Gerencie as Dependência e seus Agendamentos.</p>
+            <div class="descricao-card">
+              <h3>Dependência interna e Agendamentos</h3>
+              <p>Gerencie as Dependência e seus Agendamentos.</p>
+            </div>
+
           </a>
           <a href="painelSituacao.php" class="action-card">
             <div class="action-icon">
-              <i class="fas fa-home"></i>
+              <i class="fa-solid fa-pen"></i>
             </div>
-            <h3>Situação</h3>
-            <p>Gerencie as Situações das Unidades do sistema.</p>
+            <div class="descricao-card">
+              <h3>Situação</h3>
+              <p>Gerencie as Situações das Unidades do sistema.</p>
+            </div>
+
           </a>
 
           <a href="gerenciamento.php" class="action-card">
             <div class="action-icon">
               <i class="fas fa-users"></i>
             </div>
-            <h3>Usuários (
-              <?php while ($numeroUsuario = mysqli_fetch_assoc($consulta)) {
-                echo $numeroUsuario["numeroUsuario"];
-              } ?>
+            <div class="descricao-card">
+              <h3>Usuários (
+                <?php while ($numeroUsuario = mysqli_fetch_assoc($consulta)) {
+                  echo $numeroUsuario["numeroUsuario"];
+                } ?>
 
 
-              )</h3>
-            <p>Gerencie os usuários do sistema.</p>
+                )</h3>
+              <p>Gerencie os usuários do sistema.</p>
+            </div>
+
           </a>
           <a href="gerenciamentoProfissional.php" class="action-card">
             <div class="action-icon">
               <i class="fas fa-briefcase"></i>
             </div>
-            <h3>Profissionais</h3>
-            <p>Visualize e edite a lista de profissionais.</p>
+            <div class="descricao-card">
+              <h3>Profissionais</h3>
+              <p>Visualize e edite a lista de profissionais.</p>
+            </div>
+
           </a>
           <a href="gerenciamentoServico.php" class="action-card">
             <div class="action-icon">
               <i class="fas fa-plus"></i>
             </div>
-            <h3>Serviços</h3>
-            <p>Visualize e Cadastre novos serviços no sistema.</p>
+            <div class="descricao-card">
+              <h3>Serviços</h3>
+              <p>Visualize e Cadastre novos serviços no sistema.</p>
+            </div>
+
           </a>
           <a href="gerenciamentoEvento.php" class="action-card">
             <div class="action-icon">
               <i class="fa-regular fa-image"></i>
             </div>
-            <h3>Eventos internos</h3>
-            <p>Visualize e edite a lista de eventos.</p>
+            <div class="descricao-card">
+              <h3>Eventos internos</h3>
+              <p>Visualize e edite a lista de eventos.</p>
+            </div>
+
           </a>
 
           <a href="gerenciamentoNoticia.php" class="action-card">
             <div class="action-icon">
               <i class="fa-solid fa-newspaper"></i>
             </div>
-            <h3>Notícias</h3>
-            <p>Visualize e edite a lista de notícias.</p>
+            <div class="descricao-card">
+              <h3>Notícias</h3>
+              <p>Visualize e edite a lista de notícias.</p>
+            </div>
+
           </a>
           <a href="log.php" class="action-card">
             <div class="action-icon">
               <i class="fa-solid fa-file"></i>
             </div>
-            <h3>LOG</h3>
-            <p>Visualize os acessos e Indicações do sistema</p>
+            <div class="descricao-card">
+              <h3>LOG</h3>
+              <p>Visualize os acessos e Indicações do sistema</p>
+            </div>
+
           </a>
           <a href="validaAnuncio.php" class="action-card">
             <div class="action-icon">
               <i class="fa-solid fa-tag"></i>
             </div>
-            <h3>Validar Anúncios(
-              <?php while ($validacaoAnuncio = mysqli_fetch_assoc($consulta3)) {
-                echo $validacaoAnuncio["validacaoAnuncio"];
-              } ?>
+            <div class="descricao-card">
+              <h3>Validar Anúncios(
+                <?php while ($validacaoAnuncio = mysqli_fetch_assoc($consulta3)) {
+                  echo $validacaoAnuncio["validacaoAnuncio"];
+                } ?>
 
 
-              )</h3>
-            <p>Verifique os anúncios pendentes</p>
+                )</h3>
+              <p>Verifique os anúncios pendentes</p>
+            </div>
+
           </a>
           <a href="validaImagem.php" class="action-card">
             <div class="action-icon">
               <i class="fa-regular fa-image"></i>
             </div>
-            <h3>Validar Imagens (
-              <?php while ($validacaoImagem = mysqli_fetch_assoc($consulta2)) {
-                echo $validacaoImagem["validacaoImagem"];
-              } ?>
+            <div class="descricao-card">
+              <h3>Validar Imagens (
+                <?php while ($validacaoImagem = mysqli_fetch_assoc($consulta2)) {
+                  echo $validacaoImagem["validacaoImagem"];
+                } ?>
 
 
-              )</h3>
-            <p>Valide as imagens pendentes</p>
+                )</h3>
+              <p>Valide as imagens pendentes</p>
+            </div>
+
           </a>
           <a href="linkCameras.php" class="action-card">
             <div class="action-icon">
               <i class="fa fa-video-camera"></i>
             </div>
-            <h3>Link Câmeras</h3>
-            <p>Editar Links da Câmeras </p>
+            <div class="descricao-card">
+              <h3>Link Câmeras</h3>
+              <p>Editar Links da Câmeras </p>
+            </div>
+
           </a>
           <a href="gerenciarGaleria.php" class="action-card">
             <div class="action-icon">
               <i class="fa-regular fa-image"></i>
             </div>
-            <h3>Galeria de Fotos</h3>
-            <p>Gerenciar galeria de Fotos </p>
+            <div class="descricao-card">
+              <h3>Galeria de Fotos</h3>
+              <p>Gerenciar galeria de Fotos </p>
+            </div>
+
           </a>
           <a href="canais.php" class="action-card">
             <div class="action-icon">
               <i class="fa-solid fa-globe"></i>
             </div>
-            <h3>Gerenciar Canais</h3>
-            <p>Gerencie os canais que ficaram visíveis aos usuários </p>
+            <div class="descricao-card">
+              <h3>Gerenciar Canais</h3>
+              <p>Gerencie os canais que ficaram visíveis aos usuários </p>
+            </div>
+
           </a>
           <a href="paginaInicial.php" class="action-card">
             <div class="action-icon">
               <i class="fa-solid fa-bars"></i>
             </div>
-            <h3>Página Inicial</h3>
-            <p>Vá para a Página Inicial do Sistema</p>
+            <div class="descricao-card">
+              <h3>Página Inicial</h3>
+              <p>Vá para a Página Inicial do Sistema</p>
+            </div>
+
           </a>
         </div>
 

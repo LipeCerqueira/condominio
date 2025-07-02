@@ -52,6 +52,7 @@ if (isset($_SESSION["msg"])) {
                     Administração de Agendamentos de Dependências
                 </div>
                 <a href="adicionarAgenda.php" class="admin-button outline">Fazer Agendamento</a>
+                <a href="calendario.php" class="admin-button outline">Calendário</a>
                 <a href="painelDependencias.php" class="admin-button outline">Voltar</a>
                 
             </div>
