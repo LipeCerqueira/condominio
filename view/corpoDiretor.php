@@ -10,8 +10,8 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-         <link rel="stylesheet" href="../css/paginaInicial.css">
-         <link rel="stylesheet" href="../css/corpoDiretor.css">
+
+         <link rel="stylesheet" href="../css/setup.css">
 </head>
 <body>
  <?php 
@@ -22,7 +22,7 @@
   
   <!-- Main Content -->
   <main class="main-content">
-    <div class="container">
+    <div class="container2">
       <!-- Board of Directors Section -->
       <section class="board-section">
         <h1>Corpo Diretor</h1>

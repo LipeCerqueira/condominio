@@ -12,8 +12,8 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-  <link rel="stylesheet" href="../css/paginaInicial.css">
-  <link rel="stylesheet" href="../css/listaServico.css">
+  <link rel="stylesheet" href="../css/setup.css">
+  <!-- <link rel="stylesheet" href="../css/listaServico.css"> -->
   
   <script src="../JS/sweetalert.js"></script>
   <script>
@@ -55,7 +55,7 @@
 
   <!-- Main Content -->
   <main class="main-content">
-    <div class="container">
+    <div class="container2">
       <!-- Services Section -->
       <section id="services">
         <h2 class="section-title">Indicações</h2>

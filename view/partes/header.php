@@ -8,7 +8,7 @@
 <body>
 <header>  
     <div class="container header-container">      
- <a class="logo" href="paginaInicial.php"><img src="logo.png" alt="logo" id="logo" > Portal  <span> Condominios</span> <h3>v.1.0</h3></a> 
+ <a class="logo" href="paginaInicial.php"><img src="logo.png" alt="logo"  > Portal  <span> Condominios</span> <h3>v.1.0</h3></a> 
     </div>    
   </header>
 </body>

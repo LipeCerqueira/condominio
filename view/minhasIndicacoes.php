@@ -5,11 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/paginaInicial.css">
+    <link rel="stylesheet" href="../css/setup.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/infoUteis.css">
-    <link rel="stylesheet" href="../css/meusAnuncios.css">
-    <link rel="stylesheet" href="../css/detalheClassificados.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function editar(id) {
@@ -63,7 +61,7 @@
 
     require('partes/header.php'); ?>
     <main class="main-content">
-        <div class="container">
+        <div class="container2">
             <!-- Events Section -->
             <section id="events">
                 <h2 class="section-title">Minhas indicações</h2>

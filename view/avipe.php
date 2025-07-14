@@ -13,8 +13,8 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-  <link rel="stylesheet" href="../css/paginaInicial.css">
-  <link rel="stylesheet" href="../css/avipe.css">
+  <link rel="stylesheet" href="../css/setup.css">
+
   <script src="../JS/sweetalert.js"></script>
 </head>
 <body>
@@ -26,7 +26,7 @@
 
   <!-- Main Content -->
   <main class="main-content">
-    <div class="container">
+    <div class="container2">
       <!-- AVIPE Section -->
       <section id="avipe">
         <h2 class="section-title">Associação</h2>

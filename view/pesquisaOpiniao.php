@@ -12,8 +12,8 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-  <link rel="stylesheet" href="../css/paginaInicial.css">
-  <link rel="stylesheet" href="../css/pesquisaOpiniao.css">
+  <link rel="stylesheet" href="../css/setup.css">
+ 
   
 </head>
 <body>
@@ -26,7 +26,7 @@
   
   <!-- Main Content -->
   <main class="main-content">
-    <div class="container">
+    <div class="container2">
       <!-- Opinion Survey Section -->
       <section id="opinion-survey">
         <h2 class="section-title">Pesquisa de Opinião</h2>

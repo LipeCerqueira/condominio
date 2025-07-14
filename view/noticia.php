@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/paginaInicial.css">
+  <link rel="stylesheet" href="../css/setup.css">
   <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
 </head>
 <body>
@@ -32,7 +32,7 @@
 
   <!-- Main Content -->
   <main class="main-content">
-    <div class="container">
+    <div class="container2">
       <!-- News Section -->
       <section id="news">
         <h2 class="section-title">Últimas Notícias</h2>

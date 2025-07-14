@@ -6,8 +6,8 @@
     <title>Missão, Visão e Valores - Portal Villa Dom Pedro</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-       <link rel="stylesheet" href="../css/paginaInicial.css">
-      <link rel="stylesheet" href="../css/mvv.css">
+       <link rel="stylesheet" href="../css/setup.css">
+   
   
 </head>
 <body>

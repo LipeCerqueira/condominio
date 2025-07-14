@@ -4,14 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Equipe de Desenvolvedores - Portal do Condomínio</title>
-  <link rel="stylesheet" href="styles.css">
-  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="styles.css">  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-  <link rel="stylesheet" href="../css/paginaInicial.css">
-  <link rel="stylesheet" href="../css/desenvolvedor.css">
+  <link rel="stylesheet" href="../css/setup.css">
+ 
   <script src="../JS/sweetalert.js"></script>
 </head>
 <body>
@@ -25,7 +24,7 @@
   
   <!-- Main Content -->
   <main class="main-content">
-    <div class="container">
+    <div class="container2">
       <!-- Team Section -->
       <section class="team-section">
         <h1>Equipe de Desenvolvedores</h1>

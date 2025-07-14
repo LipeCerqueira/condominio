@@ -14,8 +14,8 @@
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-3.3.2.min.js"></script>
-    <link rel="stylesheet" href="../css/paginaInicial.css">
-    <link rel="stylesheet" href="../css/galeriaFoto.css">
+    <link rel="stylesheet" href="../css/setup.css">
+    <!-- <link rel="stylesheet" href="../css/galeriaFoto.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function excluir(id, local, ip, usuario) {
@@ -47,7 +47,7 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="container">
+        <div class="container2">
             <!-- Gallery Section -->
             <section id="galeria">
                 <h2 class="section-title">Minhas Fotos</h2>
