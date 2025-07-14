@@ -70,7 +70,7 @@ $canais = array_column(mysqli_fetch_all($consulta3, MYSQLI_ASSOC), 'nomeCanal');
 
   <!-- Main Content -->
   <main class="main-content">
-    <div class="container">
+    <div class="container2">
       <!-- Welcome Section -->
       <section class="welcome-section">
         <!-- <h1>Bem-vindo</h1> -->

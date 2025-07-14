@@ -864,6 +864,7 @@ input[type="radio"] {
   border: none;
   outline: none;
   transform: scale(1);
+  width: 100%;
 }
 
 .btn:hover {
@@ -1926,14 +1927,14 @@ table.calendario th {
     background-color: #f2f2f2;
   }
 
-  .btn {
+  /* .btn {
     padding: 10px 15px;
     margin: 2px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 15px;
-  }
+  } */
 
   .btn-editar {
     background-color: #007bff;
@@ -2152,7 +2153,7 @@ table.calendario th {
   margin-top: 10px;
 }
 
-  .btn {
+  /* .btn {
     display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -2167,7 +2168,7 @@ table.calendario th {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-  
+   */
 
 
 .gallery-image {
@@ -2282,7 +2283,7 @@ table.calendario th {
     margin-top: 30px;
   }
   
-  .service-button {
+  .list-button {
     background-color: var(--condo-teal);
     color: white;
     padding: 15px 20px;
@@ -2298,11 +2299,11 @@ table.calendario th {
    
   }
   
-  .service-button:hover {
+  .list-button {
     background-color: var(--condo-teal);
     transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  }
+  } 
   
   /* Mobile view - 2 buttons per row */
   @media (max-width: 768px) {

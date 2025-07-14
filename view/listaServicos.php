@@ -96,7 +96,7 @@
           while ($servico = mysqli_fetch_assoc($consulta)) {
 
           ?>
-            <button class="service-button" onclick="detalhes(<?= $servico['idProfissao'] ?>,'<?= $servico['nomeProfissao'] ?>')"><?= $servico["nomeProfissao"] ?> (<?=$servico["total"]?>)</button>
+            <button class="list-button" onclick="detalhes(<?= $servico['idProfissao'] ?>,'<?= $servico['nomeProfissao'] ?>')"><?= $servico["nomeProfissao"] ?> (<?=$servico["total"]?>)</button>
 
           <?php   } ?>
 

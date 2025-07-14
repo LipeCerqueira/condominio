@@ -16,7 +16,7 @@
 
 <link rel="stylesheet" href="../css/setup.css">
 <!-- link rel="stylesheet" href="../css/paginaInicial.css" -->
-<link rel="stylesheet" href="../css/cadastro.css">
+<!-- <link rel="stylesheet" href="../css/cadastro.css"> -->
 
 
 </head>

@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profissionais - Condomínio</title>
-  <link rel="stylesheet" href="styles.css">
+
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
   
-	<link rel="stylesheet" href="../css/paginaInicial.css" >
+	<link rel="stylesheet" href="../css/setup.css" >
 	
 	
 	
@@ -41,7 +41,7 @@
 
   ?>
   <main class="main-content">
-    <div class="container">
+    <div class="container2">
       <!-- Professionals Section -->
       <section id="professionals">
         <?php
