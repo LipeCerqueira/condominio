@@ -7,10 +7,9 @@
     <title>Administração - Cadastro App</title>
     <meta name="description" content="Painel de Administração" />
     <meta name="author" content="Lovable" />
-    <link rel="stylesheet" href="/src/styles.css">
-    <link rel="stylesheet" href="../css/gerenciamento.css">
+    <link rel="stylesheet" href="../css/adm.css">
     <script src="../JS/sweetalert.js"></script>
-   
+
 </head>
 
 <?php
@@ -58,7 +57,7 @@ if (isset($_SESSION["msg"])) {
                                 <th>IP</th>
                                 <th>Categoria</th>
                                 <th>Data e Hora</th>
-                              
+
                             </tr>
                         </thead>
                         <tbody>
@@ -75,43 +74,43 @@ if (isset($_SESSION["msg"])) {
 
 
                             while ($evento = mysqli_fetch_assoc($eventos)) {
-                                
+
                             ?>
                                 <tr <?php
-                                    if($evento['acao'] == "Login") {
+                                    if ($evento['acao'] == "Login") {
                                         echo 'style="background-color: #d4edda;"';
-                                    } else if($evento['acao'] == "Indicação"){
+                                    } else if ($evento['acao'] == "Indicação") {
                                         echo 'style="background-color:rgb(252, 255, 77);"';
-                                    }else{
+                                    } else {
                                         echo 'style="background-color:rgb(255, 172, 77);"';
                                     }
-                                
-                                ?>>
+
+                                    ?>>
                                     <td class="name-cell">
-                                    <?php 
-                                        if($evento['nomeUsuario'] == null){
+                                        <?php
+                                        if ($evento['nomeUsuario'] == null) {
                                             echo "Visitante";
-                                        }else{
+                                        } else {
                                             echo $evento['nomeUsuario'];
                                         }
-                                    
-                                    ?>    
-                                    
-                                       </td>
-                                    <td><?php 
-                                        if($evento['acao'] == "Visitante"){
+
+                                        ?>
+
+                                    </td>
+                                    <td><?php
+                                        if ($evento['acao'] == "Visitante") {
                                             echo "Login";
-                                        }else{
+                                        } else {
                                             echo $evento['acao'];
                                         }
-                                    
-                                    ?> </td>
+
+                                        ?> </td>
                                     <td><?= $evento['ip'] ?></td>
                                     <td><?= $evento['categoria'] ?></td>
                                     <td><?= $evento['data_formatada'] ?></td>
-               
-                                    
-                                    
+
+
+
                                 </tr>
 
                             <?php
@@ -130,7 +129,7 @@ if (isset($_SESSION["msg"])) {
         </div>
     </div>
 
-    
+
 </body>
 
 </html>

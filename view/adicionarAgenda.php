@@ -13,7 +13,7 @@
     <script src="../JS/sweetalert.js"></script>
 
 
-    <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="stylesheet" href="../css/setup.css">
 
 
 </head>

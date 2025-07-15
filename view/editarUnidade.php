@@ -49,7 +49,7 @@
             background-color: #1976D2;
         }
     </style>
-    <link rel="stylesheet" href="../css/paginaInicial.css">
+    <link rel="stylesheet" href="../css/setup.css">
 </head>
 
 <body>

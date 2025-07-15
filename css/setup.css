@@ -1795,15 +1795,18 @@ table.calendario th {
   color: white;
 }
 
-.cabecalho {
+.cabecalho form {
   background: var(--condo-teal);
   color: #fff;
   padding: 10px;
   margin-bottom: 10px;
-  text-align: center;
 
-
+text-align: center;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
   font-size: 18px;
+  flex-direction: row;
 }
 
 .cabecalho input{
@@ -1815,10 +1818,10 @@ table.calendario th {
   border-radius: 5px;
 }
 .cabecalho button{
-  height: 30px;
+  height: 50px;
   border-radius: 5px;
-  width: 50px;
-  font-size: 15x;
+  width: 80px;
+  font-size: 18px;
   margin-left: 20px;
   background-color: var(--condo-navy);
   color: #ffffff;

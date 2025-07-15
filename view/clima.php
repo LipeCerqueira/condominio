@@ -13,9 +13,7 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css" -->
-<link rel="stylesheet" href="../css/paginaInicial.css">
-<link rel="stylesheet" href="../css/infoUteis.css">
+  <link rel="stylesheet" href="../css/setup.css">
 <!-- link rel="stylesheet" href="../css/setup.css" -->
  
 	<script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
@@ -33,7 +31,7 @@
 
   <!-- Main Content -->
   <main class="main-content">
-    <div class="container">
+    <div class="container2">
       <!-- Useful Information Section -->
       <section id="useful-info">
         <h2 class="section-title">Clima Tempo</h2>

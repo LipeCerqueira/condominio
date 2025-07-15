@@ -37,7 +37,9 @@ while ($e = mysqli_fetch_assoc($eventosQuery)) {
 $nomesMeses = ["", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 $nomesDias = ["Domingo", "Segunda-Feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
 ?>
-<link rel="stylesheet" href="../css/paginaInicial.css">
+
+<link rel="stylesheet" href="../css/setup.css">
+
 
 
 <div class="cabecalho">

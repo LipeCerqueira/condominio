@@ -9,8 +9,7 @@
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-	<link rel="stylesheet" href="../css/paginaInicial.css">   
-	<link rel="stylesheet" href="../css/detalheClassificados.css" >
+	  <link rel="stylesheet" href="../css/setup.css">
  
 	
 	

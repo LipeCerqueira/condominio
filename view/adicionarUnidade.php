@@ -16,7 +16,7 @@
         button { padding: 10px; background-color: #2196F3; color: white; border: none; cursor: pointer; }
         button:hover { background-color: #1976D2; }
     </style>
-      <link rel="stylesheet" href="../css/paginaInicial.css">
+      <link rel="stylesheet" href="../css/setup.css">
 </head>
 <body>
 <?php 

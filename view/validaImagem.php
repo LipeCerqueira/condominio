@@ -7,11 +7,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/paginaInicial.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/infoUteis.css">
-    <link rel="stylesheet" href="../css/meusAnuncios.css">
-    <link rel="stylesheet" href="../css/detalheClassificados.css">
+ 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="../css/gerenciamento.css">
+    <link rel="stylesheet" href="../css/adm.css">
+    <link rel="stylesheet" href="../css/setup.css">
     <script>
         function aprovar(id) {
             window.location.href = '../controller/aprovarImagem.php?id=' + id;

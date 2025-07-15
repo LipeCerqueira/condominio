@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <link rel="stylesheet" href="../css/cadastro.css">
+     <link rel="stylesheet" href="../css/setup.css">
     <script>
         function voltar() {
             window.location.href = "listarSituacaoOcupacao.php";

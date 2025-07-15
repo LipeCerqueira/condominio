@@ -8,8 +8,8 @@
     <meta name="description" content="Painel de Administração" />
     <meta name="author" content="Lovable" />
 
-    <link rel="stylesheet" href="../css/gerenciamento.css">
-    <link rel="stylesheet" href="../css/galeriaFoto.css">
+    <link rel="stylesheet" href="../css/adm.css">
+    <link rel="stylesheet" href="../css/setup.css">
     <script src="../JS/sweetalert.js"></script>
 
     <script>
