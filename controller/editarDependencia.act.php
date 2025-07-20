@@ -6,6 +6,15 @@ require("../model/connect.php");
 session_start();
 $msg="";
 
+require_once("../model/antiInjection.php");
+if(antiInjection($nome) == 0 || antiInjection($descricao) == 0 || antiInjection($capacidade) == 0 || antiInjection($abertura) == 0 || antiInjection($fechamento) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/editarDependencia.php");
+    exit;
+}
+
 if(mysqli_query($con, "update `area` set `nome` = '$nome',
                                             `descricao` = '$descricao',
                                             `capacidade` = '$capacidade',

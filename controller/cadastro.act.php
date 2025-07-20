@@ -22,6 +22,15 @@ $_SESSION['estado_tentativa'] = $estado;
 $_SESSION['numero_tentativa'] = $numero;
 $_SESSION['situacao_tentativa'] = $situacao;
 
+require_once("../model/antiInjection.php");
+if(antiInjection($nome) == 0 || antiInjection($sobrenome) == 0 || antiInjection($dataNascimento) == 0 || antiInjection($cpf) == 0 || antiInjection($telefone) == 0 || antiInjection($email) == 0 || antiInjection($senha) == 0 || antiInjection($cep) == 0 || antiInjection($rua) == 0 || antiInjection($complemento) == 0 || antiInjection($bairro) == 0 || antiInjection($cidade) == 0 || antiInjection($estado) == 0 || antiInjection($numero) == 0 || antiInjection($situacao) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/cadastro.php");
+    exit;
+}
+
 
 $cpf_limpo = preg_replace('/\D/', '', $cpf);
 

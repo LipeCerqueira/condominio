@@ -5,8 +5,14 @@ extract($_FILES);
 $destino ="";
 @session_start();
 
+require_once("../model/antiInjection.php");
 
-
+if(antiInjection($morador) == 0 || antiInjection($area) == 0 || antiInjection($data) == 0 || antiInjection($inicio) == 0 || antiInjection($fim) == 0 || antiInjection($observacao) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/adicionarAgenda.php");
+    exit;}
   
 
     if(mysqli_query($con, "INSERT INTO agendamento_area_comum (id_morador,id_area, data_agendamento, hora_inicio,hora_fim,observacoes,status,data_solicitacao) 

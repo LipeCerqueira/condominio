@@ -4,6 +4,14 @@
 extract($_POST);
 
 require('../model/connect.php');
+require_once("../model/antiInjection.php");
+if(antiInjection($situacao) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/editarSituacao.php");
+    exit;
+}
 
 @session_start();
 mysqli_query($con, "UPDATE `situacao_unidade` set `nome_situacao` = '$situacao' WHERE `id_situacao` = '$id'");

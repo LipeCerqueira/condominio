@@ -5,6 +5,14 @@ extract($_FILES);
 $destino ="";
 @session_start();
 
+require_once("../model/antiInjection.php");
+if(antiInjection($nome) == 0 || antiInjection($dataInicio) == 0 || antiInjection($horaInicio) == 0 || antiInjection($pontoEncontro) == 0 || antiInjection($duracao) == 0 || antiInjection($informacoes) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";  
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/adicionarEvento.php");
+    exit;
+}
 
 
     $dir = "../imagensEventos/" .md5(time()) . ".jpg";

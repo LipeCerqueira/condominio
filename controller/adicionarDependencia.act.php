@@ -5,7 +5,14 @@ extract($_FILES);
 $destino ="";
 @session_start();
 
-
+require_once("../model/antiInjection.php");
+if(antiInjection($nome) == 0 || antiInjection($descricao) == 0 || antiInjection($capacidade) == 0 || antiInjection($abertura) == 0 || antiInjection($fechamento) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/adicionarDependencia.php");
+    exit;
+}
 
   
 

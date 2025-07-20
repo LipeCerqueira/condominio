@@ -5,6 +5,14 @@ extract($_FILES);
 $destino = "";
 @session_start();
 
+require_once("../model/antiInjection.php");
+if (antiInjection($manchete) == 0 || antiInjection($informacao) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/adicionarNoticia.php");
+    exit;
+}
 
 
 $dir = "../imagemNoticia/" . md5(time()) . ".jpg";

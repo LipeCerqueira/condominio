@@ -5,6 +5,16 @@ require("../Model/conexao.php");
 $id = $_POST['id'] ?? '';
 $novaSenha = $_POST['nova_senha'] ?? '';
 
+require_once("../model/antiInjection.php");
+if(antiInjection($novaSenha) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/alterarSenha.php");
+    exit;
+}
+
+
 if (empty($id) || empty($novaSenha)) {
     $_SESSION['msg'] = "Dados inválidos.";
     $_SESSION['alertIcon'] = 'error';

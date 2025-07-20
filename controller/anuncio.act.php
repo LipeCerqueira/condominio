@@ -16,6 +16,14 @@ if ($tipo == 1) {
   $categoria = "Geral";
 }
 
+require_once("../model/antiInjection.php");
+if (antiInjection($titulo) == 0 || antiInjection($descricao) == 0 || antiInjection($valor) == 0 || antiInjection($tipo) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/classificados.php");
+    exit;
+}
 
 
 require("../model/connect.php");

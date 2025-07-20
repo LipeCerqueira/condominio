@@ -6,6 +6,21 @@ extract($_POST);
 $destino = "";
 @session_start();
 $categoria = "";
+require_once("../model/antiInjection.php");
+if (antiInjection($nome) == 0 || antiInjection($telefone) == 0 || antiInjection($profissao) == 0 || antiInjection($indicado) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    if ($origem == "usuario") {
+        $destino = "../view/listaServicos.php";
+    } else {
+        $destino = "../view/gerenciamentoProfissional.php";
+    }
+    header("Location:$destino");
+    exit;
+}
+
+
 $buscaTelefone = mysqli_query($con, "SELECT * FROM `profissional` WHERE `telefone` = '$telefone' AND idProfissao = '$profissao';");
 
 if($telefone == $_SESSION['telefone']){

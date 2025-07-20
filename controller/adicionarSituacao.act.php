@@ -9,6 +9,14 @@ $destino ="";
 
 
 // if($busca->num_rows == 0){
+require_once("../model/antiInjection.php");
+if(antiInjection($situacao) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/adicionarSituacao.php");
+    exit;
+}
     
     if(mysqli_query($con, "INSERT INTO situacao_unidade (nome_situacao) 
                             VALUES('$situacao');")){

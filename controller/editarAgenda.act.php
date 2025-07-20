@@ -6,6 +6,16 @@ require("../model/connect.php");
 session_start();
 $msg="";
 
+
+require_once("../model/antiInjection.php");
+if(antiInjection($morador) == 0 || antiInjection($area) == 0 || antiInjection($data) == 0 || antiInjection($inicio) == 0 || antiInjection($fim) == 0 || antiInjection($observacao) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/editarAgenda.php");
+    exit;
+}
+
 if(mysqli_query($con, "update `agendamento_area_comum` set `id_morador` = '$morador',
                                             `id_area` = '$area',
                                             `data_agendamento` = '$data',

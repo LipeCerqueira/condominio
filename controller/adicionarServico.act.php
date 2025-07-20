@@ -4,8 +4,18 @@ extract($_POST);
 
 $destino ="";
 @session_start();
+require_once("../model/antiInjection.php");
+
+if(antiInjection($nomeProfissao) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/adicionarServico.php");
+    exit;
+}
 
 $busca = mysqli_query($con, "SELECT * FROM profissao WHERE nomeProfissao LIKE '%$nomeProfissao%'");
+
 
 
 if($busca->num_rows == 0){

@@ -15,6 +15,16 @@ if ($pagina == "gerenciamento") {
     $destino = "../view/gerenciamento.php";
 }
 
+require_once("../model/antiInjection.php");
+if (antiInjection($nome) == 0 || antiInjection($sobrenome) == 0 || antiInjection($dataNascimento) == 0 || antiInjection($cpf) == 0 || antiInjection($telefone) == 0 || antiInjection($email) == 0 || antiInjection($senha) == 0 || antiInjection($cep) == 0 || antiInjection($rua) == 0 || antiInjection($complemento) == 0 || antiInjection($bairro) == 0 || antiInjection($cidade) == 0 || antiInjection($estado) == 0 || antiInjection($numero) == 0 || antiInjection($situacao) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:$destino");
+    exit;
+}
+
+
 
 if ($foto['size'] > 0) {
     $dir = "../fotoUsuarios/" . md5(time()) . ".jpg";

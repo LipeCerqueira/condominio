@@ -8,6 +8,14 @@ session_start();
 $msg="";
 $destino = "../view/gerenciamentoEvento.php";
 
+require_once("../model/antiInjection.php");
+if(antiInjection($nome) == 0 || antiInjection($dataInicio) == 0 || antiInjection($horaInicio) == 0 || antiInjection($pontoEncontro) == 0 || antiInjection($duracao) == 0 || antiInjection($informacoes) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/editarEvento.php?idEvento=$idEvento");
+    exit;
+}
 
 if($foto['size']>0){
 $dir = "../imagensEventos/" .md5(time()) . ".jpg";

@@ -7,6 +7,14 @@ $destino ="";
 
 // $busca = mysqli_query($con, "SELECT * FROM situacao_unidade WHERE nomeProfissao LIKE '%$nomeProfissao%'");
 
+require_once("../model/antiInjection.php");
+if(antiInjection($situacao) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/adicionarSituacaoFinanceira.php");
+    exit;
+}
 
 // if($busca->num_rows == 0){
     

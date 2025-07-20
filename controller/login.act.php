@@ -2,6 +2,19 @@
 extract($_POST);
 require("../model/connect.php");
 
+require_once("../model/antiInjection.php");
+
+if(antiInjection($_POST['cpf']) == 0 || antiInjection($_POST['senha']) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/login.php");
+    exit;
+}
+
+
+
+
 session_start();
 $destino = "";
 $msg = "";

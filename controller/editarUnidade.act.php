@@ -4,6 +4,15 @@ session_start();
 
 require('../model/connect.php');
 
+require_once("../model/antiInjection.php");
+if (antiInjection($bloco) == 0 || antiInjection($unidade) == 0 || antiInjection($condominio) == 0 || antiInjection($proprietario) == 0 || antiInjection($morador) == 0 || antiInjection($vaga1) == 0 || antiInjection($vaga2) == 0 || antiInjection($vaga3) == 0 || antiInjection($vaga4) == 0 || antiInjection($sitUnidade) == 0 || antiInjection($ocupante) == 0 || antiInjection($sitFinanceira) == 0 || antiInjection($observacao) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/listarUnidade.php");
+    exit;
+}
+
 
 if (mysqli_query($con, "UPDATE `unidades` SET `bloco` = '$bloco',
                                                 `unidade` = '$unidade',

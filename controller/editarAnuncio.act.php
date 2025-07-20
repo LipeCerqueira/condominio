@@ -8,6 +8,15 @@ session_start();
 $msg = "";
 $destino = "../view/meusAnuncios.php";
 
+require_once("../model/antiInjection.php");
+if (antiInjection($titulo) == 0 || antiInjection($descricao) == 0 || antiInjection($valor) == 0 || antiInjection($tipo) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/editarAnuncio.php?idAnuncio=$idAnuncio");
+    exit;
+}
+
 
 if ($foto['size'] > 0) {
     $dir = "../imagensAnuncio/" .md5(time()) . ".jpg";
@@ -16,6 +25,7 @@ if ($foto['size'] > 0) {
 } else {
     $dir = $foto_atual;
 }
+
 
 
 

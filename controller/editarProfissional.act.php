@@ -13,6 +13,15 @@ if($local == "user") {
     $destino = "../view/gerenciamentoProfissional.php";
 }
 
+require_once("../model/antiInjection.php");
+if(antiInjection($telefone) == 0 || antiInjection($nome) == 0 || antiInjection($profissao) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:$destino");
+    exit;
+}
+
 
 
 // if($foto['size']>0){

@@ -9,6 +9,15 @@ require("../Model/connect.php");
 
 extract($_POST);
 
+require_once("../model/antiInjection.php");
+if(antiInjection($senha) == 0 || antiInjection($confirmaSenha) == 0) {
+    $_SESSION["msg"] = "Dados inválidos!";
+    $_SESSION['alertMsg'] = "Tentativa de injeção detectada!";
+    $_SESSION['alertIcon'] = 'error';
+    header("location:../view/mudarSenha.php");
+    exit;
+}
+
 if($senha == $confirmaSenha){
 
 $senha = password_hash($senha,PASSWORD_DEFAULT);
