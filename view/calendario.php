@@ -1,9 +1,9 @@
 <?php
 require_once("../model/connect.php");
-  
-  
-    require("partes/header.php");
-  
+
+
+require("partes/header.php");
+
 
 // Filtro de área
 $areaSelecionada = isset($_GET['area']) ? $_GET['area'] : '';
@@ -12,7 +12,7 @@ $areaSelecionada = isset($_GET['area']) ? $_GET['area'] : '';
 $ano = isset($_GET['ano']) ? intval($_GET['ano']) : date('Y');
 $mes = isset($_GET['mes']) ? intval($_GET['mes']) : intval(date('m'));
 if ($mes < 1 || $mes > 12) {
-    $mes = intval(date('m'));
+  $mes = intval(date('m'));
 }
 
 $primeiroDiaSemana = date('w', strtotime("$ano-$mes-01"));
@@ -22,16 +22,16 @@ $diasNoMes = cal_days_in_month(CAL_GREGORIAN, $mes, $ano);
 $areas = mysqli_query($con, "SELECT * FROM area WHERE status = 1");
 
 // Buscar agendamentos do mês
-$sql = "SELECT * FROM agendamento_area_comum WHERE MONTH(data_agendamento) = $mes AND YEAR(data_agendamento) = $ano";
+$sql = "SELECT ag.*,a.*, DATE_FORMAT(ag.hora_inicio, '%H:%i') AS inicio  FROM agendamento_area_comum ag INNER JOIN area a ON a.id_area = ag.id_area WHERE MONTH(ag.data_agendamento) = $mes AND YEAR(ag.data_agendamento) = $ano";
 if ($areaSelecionada != '') {
-    $sql .= " AND id_area = '$areaSelecionada'";
+  $sql .= " AND ag.id_area = '$areaSelecionada'";
 }
 $eventosQuery = mysqli_query($con, $sql);
 
 $eventos = [];
 while ($e = mysqli_fetch_assoc($eventosQuery)) {
-    $dia = date('j', strtotime($e['data_agendamento']));
-    $eventos[$dia][] = $e;
+  $dia = date('j', strtotime($e['data_agendamento']));
+  $eventos[$dia][] = $e;
 }
 
 $nomesMeses = ["", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
@@ -40,10 +40,10 @@ $nomesDias = ["Domingo", "Segunda-Feira", "Terça-feira", "Quarta-feira", "Quint
 
 <link rel="stylesheet" href="../css/setup.css">
 
-
-
 <div class="cabecalho">
+
   <form method="GET">
+    <a href="adm.php" id="btnVoltar">Voltar</a>
     <label>Ano: <input type="number" name="ano" value="<?= $ano ?>" min="2020"></label>
     <label>Mês:
       <select name="mes">
@@ -80,42 +80,42 @@ $nomesDias = ["Domingo", "Segunda-Feira", "Terça-feira", "Quarta-feira", "Quint
   $semana = 0;
   echo "<tr>";
   for ($i = 0; $i < 7; $i++) {
-      if ($i < $primeiroDiaSemana) {
-          echo "<td></td>";
-      } else {
-          echo "<td><strong>$dia</strong>";
-          if (isset($eventos[$dia])) {
-              foreach ($eventos[$dia] as $ev) {
-                  echo "<div class='evento'>" . htmlspecialchars($ev['observacoes']) . "</div>";
-              }
-          }
-          echo "</td>";
-          $dia++;
+    if ($i < $primeiroDiaSemana) {
+      echo "<td></td>";
+    } else {
+      echo "<td><strong>$dia</strong>";
+      if (isset($eventos[$dia])) {
+        foreach ($eventos[$dia] as $ev) {
+          echo "<div class='evento'>" . htmlspecialchars($ev['observacoes']) . " - " . htmlspecialchars($ev['id_morador']) .  "<br><strong>Horário: " . htmlspecialchars($ev['inicio']) . " - " . htmlspecialchars($ev['nome']) . "</strong></div>";
+        }
       }
+      echo "</td>";
+      $dia++;
+    }
   }
   echo "</tr>";
 
   while ($dia <= $diasNoMes) {
-      echo "<tr>";
-      for ($i = 0; $i < 7; $i++) {
-          if ($dia <= $diasNoMes) {
-              echo "<td><strong>$dia</strong>";
-              if (isset($eventos[$dia])) {
-                  foreach ($eventos[$dia] as $ev) {
-                      echo "<div class='evento'>" . htmlspecialchars($ev['observacoes']) . "</div>";
-                  }
-              }
-              echo "</td>";
-              $dia++;
-          } else {
-              echo "<td></td>";
+    echo "<tr>";
+    for ($i = 0; $i < 7; $i++) {
+      if ($dia <= $diasNoMes) {
+        echo "<td><strong>$dia</strong>";
+        if (isset($eventos[$dia])) {
+          foreach ($eventos[$dia] as $ev) {
+            echo "<div class='evento'>" . htmlspecialchars($ev['observacoes']) . " - " . htmlspecialchars($ev['id_morador']) .  "<br><strong>Horário: " . htmlspecialchars($ev['inicio']) . " - " . htmlspecialchars($ev['nome']) . "</strong></div>";
           }
+        }
+        echo "</td>";
+        $dia++;
+      } else {
+        echo "<td></td>";
       }
-      echo "</tr>";
+    }
+    echo "</tr>";
   }
   ?>
 </table>
-<?php 
+<?php
 
- require("partes/footer.php");
+require("partes/footer.php");
 ?>

@@ -1795,6 +1795,20 @@ table.calendario th {
   color: white;
 }
 
+ #btnVoltar{
+     height: 50px;
+  border-radius: 5px;
+  width: 80px;
+  font-size: 18px;
+  margin-left: 20px;
+  background-color: var(--condo-navy);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px rgb(29, 29, 29) solid ;
+  }
+
 .cabecalho form {
   background: var(--condo-teal);
   color: #fff;
@@ -1943,6 +1957,8 @@ justify-content: space-evenly;
     background-color: #007bff;
     color: white;
   }
+
+ 
 
   .btn-excluir {
     background-color: #dc3545;
