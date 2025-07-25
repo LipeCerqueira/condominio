@@ -15,8 +15,8 @@ if(antiInjection($morador) == 0 || antiInjection($area) == 0 || antiInjection($d
     exit;}
   
 
-    if(mysqli_query($con, "INSERT INTO agendamento_area_comum (id_morador,id_area, data_agendamento, hora_inicio,hora_fim,observacoes,status,data_solicitacao) 
-                            VALUES('$morador','$area','$data' ,'$inicio','$fim','$observacao','$status',now());")){
+    if(mysqli_query($con, "INSERT INTO agendamento_area_comum (id_morador,id_area,unidade, data_agendamento, hora_inicio,hora_fim,observacoes,status,data_solicitacao) 
+                            VALUES('$morador','$area','$unidade','$data' ,'$inicio','$fim','$observacao','$status',now());")){
       
         $_SESSION['msg'] = "Sucesso!";
         $_SESSION['alertMsg'] = "Agendamento realizado com sucesso!";

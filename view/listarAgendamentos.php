@@ -65,6 +65,7 @@ if (isset($_SESSION["msg"])) {
                         <thead>
                             <tr>
                                 <th>Local</th>
+                                <th>Unidade</th>
                                 <th>Data</th>
 
                                 <th>Hora Inicio</th>
@@ -78,7 +79,11 @@ if (isset($_SESSION["msg"])) {
 
                             require_once("../model/connect.php");
 
-                            $consulta = mysqli_query($con, "SELECT ag.*,a.*, DATE_FORMAT(ag.data_agendamento, '%d/%m/%Y') AS data_formatada FROM `agendamento_area_comum` ag INNER JOIN area a ON ag.id_area = a.id_area");
+                            $consulta = mysqli_query($con, "SELECT ag.*,a.*, DATE_FORMAT(ag.data_agendamento, '%d/%m/%Y') AS data_formatada,
+                            u.unidade AS num_unidade 
+                            FROM `agendamento_area_comum` ag 
+                            INNER JOIN area a ON ag.id_area = a.id_area
+                            INNER JOIN unidades u ON u.id = ag.unidade");
 
 
 
@@ -89,6 +94,7 @@ if (isset($_SESSION["msg"])) {
 
 
                                     <td><?= $agenda['nome'] ?></td>
+                                    <td><?= $agenda['num_unidade'] ?></td>
                                     <td><?= $agenda['data_formatada'] ?></td>
                                     <td><?= $agenda['hora_inicio'] ?></td>
                                     <td><?= $agenda['hora_fim'] ?></td>

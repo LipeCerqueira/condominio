@@ -40,6 +40,7 @@ require("../model/connect.php");
 
 @$id =  $_GET["id"];
 $busca = mysqli_query($con, "SELECT * FROM `agendamento_area_comum` WHERE id_agendamento = '$id'"); //buscar Agendamento
+$busca2 = mysqli_query($con, "SELECT * FROM `unidades`"); //buscar unidade
 $agenda = mysqli_fetch_assoc($busca);
 
 $consulta = mysqli_query($con, "SELECT * FROM `area` WHERE status = 1;");
@@ -80,6 +81,26 @@ $consulta = mysqli_query($con, "SELECT * FROM `area` WHERE status = 1;");
 
                     ?>
 
+                </select>
+            </div>
+             <div class="form-group">
+                <label for="unidade">Unidade * </label>
+                <select name="unidade" required>
+                    <?php
+                    while ($unidade = mysqli_fetch_assoc($busca2)) {
+
+
+
+                    ?>
+                        <option value="<?=$unidade['id']?>" <?php 
+                        if($unidade['id'] == $agenda['unidade']){
+                            echo 'selected';
+                        }
+                        
+                        ?>><?=$unidade['unidade']?> - <?=$unidade['bloco']?> </option>
+                      
+                    <?php
+                    } ?>
                 </select>
             </div>
             <div class="form-group">
@@ -148,7 +169,7 @@ $consulta = mysqli_query($con, "SELECT * FROM `area` WHERE status = 1;");
 
 
             <button class="btn btn-primary" type="submit">
-                Cadastrar
+                Editar
             </button>
         </form>
 

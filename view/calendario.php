@@ -22,7 +22,14 @@ $diasNoMes = cal_days_in_month(CAL_GREGORIAN, $mes, $ano);
 $areas = mysqli_query($con, "SELECT * FROM area WHERE status = 1");
 
 // Buscar agendamentos do mês
-$sql = "SELECT ag.*,a.*, DATE_FORMAT(ag.hora_inicio, '%H:%i') AS inicio  FROM agendamento_area_comum ag INNER JOIN area a ON a.id_area = ag.id_area WHERE MONTH(ag.data_agendamento) = $mes AND YEAR(ag.data_agendamento) = $ano";
+$sql = "SELECT ag.*,a.*, u.bloco, 
+DATE_FORMAT(ag.hora_inicio, '%H:%i') AS inicio,
+DATE_FORMAT(ag.hora_fim, '%H:%i') AS fim,
+u.unidade AS num_unidade
+FROM agendamento_area_comum ag 
+INNER JOIN area a ON a.id_area = ag.id_area 
+left JOIN unidades u ON u.id = ag.unidade 
+WHERE MONTH(ag.data_agendamento) = $mes AND YEAR(ag.data_agendamento) = $ano";
 if ($areaSelecionada != '') {
   $sql .= " AND ag.id_area = '$areaSelecionada'";
 }
@@ -86,7 +93,16 @@ $nomesDias = ["Domingo", "Segunda-Feira", "Terça-feira", "Quarta-feira", "Quint
       echo "<td><strong>$dia</strong>";
       if (isset($eventos[$dia])) {
         foreach ($eventos[$dia] as $ev) {
-          echo "<div class='evento'>" . htmlspecialchars($ev['observacoes']) . " - " . htmlspecialchars($ev['id_morador']) .  "<br><strong>Horário: " . htmlspecialchars($ev['inicio']) . " - " . htmlspecialchars($ev['nome']) . "</strong></div>";
+          echo "<div class='evento'>" .
+            htmlspecialchars($ev['observacoes']) . " - " .
+            htmlspecialchars($ev['id_morador']) . "<br>" .
+            "<strong>Horário: " .
+            htmlspecialchars($ev['inicio']) . " - " .
+            htmlspecialchars($ev['fim']) . "</strong><br>" .
+            "" . htmlspecialchars($ev['bloco']) . " - Número: " .
+            htmlspecialchars($ev['num_unidade']) . "<br>Área: " .
+            htmlspecialchars($ev['nome']) .
+            "</div>";
         }
       }
       echo "</td>";
@@ -102,7 +118,16 @@ $nomesDias = ["Domingo", "Segunda-Feira", "Terça-feira", "Quarta-feira", "Quint
         echo "<td><strong>$dia</strong>";
         if (isset($eventos[$dia])) {
           foreach ($eventos[$dia] as $ev) {
-            echo "<div class='evento'>" . htmlspecialchars($ev['observacoes']) . " - " . htmlspecialchars($ev['id_morador']) .  "<br><strong>Horário: " . htmlspecialchars($ev['inicio']) . " - " . htmlspecialchars($ev['nome']) . "</strong></div>";
+            echo "<div class='evento'>" .
+              htmlspecialchars($ev['observacoes']) . " - " .
+              htmlspecialchars($ev['id_morador']) . "<br>" .
+              "<strong>Horário: " .
+              htmlspecialchars($ev['inicio']) . " - " .
+              htmlspecialchars($ev['fim']) . "</strong><br>" .
+              "" . htmlspecialchars($ev['bloco']) . " - Número: " .
+              htmlspecialchars($ev['num_unidade']) . "<br>Área: " .
+              htmlspecialchars($ev['nome']) .
+              "</div>";
           }
         }
         echo "</td>";

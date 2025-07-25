@@ -18,6 +18,7 @@ if(antiInjection($morador) == 0 || antiInjection($area) == 0 || antiInjection($d
 
 if(mysqli_query($con, "update `agendamento_area_comum` set `id_morador` = '$morador',
                                             `id_area` = '$area',
+                                            `unidade` = '$unidade',
                                             `data_agendamento` = '$data',
                                             `hora_inicio` = '$inicio',
                                             `hora_fim` = '$fim',

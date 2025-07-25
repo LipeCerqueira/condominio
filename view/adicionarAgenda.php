@@ -38,6 +38,7 @@ if (isset($_SESSION["msg"])) {
 require("../model/connect.php");
 
 $busca = mysqli_query($con, "SELECT * FROM `area` WHERE status = 1"); //buscar condominios
+$busca2 = mysqli_query($con, "SELECT * FROM `unidades`"); //buscar unidades
 ?>
 
 <body>
@@ -74,6 +75,22 @@ $busca = mysqli_query($con, "SELECT * FROM `area` WHERE status = 1"); //buscar c
                 </select>
             </div>
             <div class="form-group">
+                <label for="unidade">Unidade * </label>
+                <select name="unidade" required>
+                    <option value="" disabled selected>SELECIONE </option>
+                    <?php
+                    while ($unidade = mysqli_fetch_assoc($busca2)) {
+
+
+
+                    ?>
+                        <option value="<?=$unidade['id']?>"><?=$unidade['unidade']?> - <?=$unidade['bloco']?> </option>
+                      
+                    <?php
+                    } ?>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="dataInicio">Morador * </label>
                 <input type="text" name="morador" placeholder="Morador" class="input-field" />
             </div>
@@ -100,11 +117,11 @@ $busca = mysqli_query($con, "SELECT * FROM `area` WHERE status = 1"); //buscar c
                 <label for="dataInicio">Status</label>
                 <select name="status" required>
                     <option value="" disabled selected>SELECIONE </option>
-                    <option value="pendente"  >Pendente </option>
-                    <option value="aprovado"  >Aprovado </option>
-                    <option value="rejeitado" >Rejeitado </option>
-                    <option value="cancelado" >Cancelado </option>
-                  
+                    <option value="pendente">Pendente </option>
+                    <option value="aprovado">Aprovado </option>
+                    <option value="rejeitado">Rejeitado </option>
+                    <option value="cancelado">Cancelado </option>
+
 
                 </select>
             </div>
