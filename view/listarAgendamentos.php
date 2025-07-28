@@ -9,7 +9,7 @@
     <meta name="author" content="Lovable" />
 
     <link rel="stylesheet" href="../css/adm.css">
-    <script src="../JS/sweetalert.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         // mudarStatus = (id, status) => {
         //     window.location.href = '../controller/mudarStatusDependencia.act.php?id=' + id + '&status=' + status;
@@ -21,15 +21,23 @@
 </head>
 
 <?php
-@session_start();
-if (isset($_SESSION["msg"])) {
+
+ @session_start();
+if (isset($_SESSION["msg"]) && isset($_SESSION["alertIcon"])) {
+    $msg = addslashes($_SESSION["msg"]);
+    $alertMsg = isset($_SESSION["alertMsg"]) ? addslashes($_SESSION["alertMsg"]) : '';
+    $alertIcon = $_SESSION["alertIcon"];
+
     echo "<script>
-    Swal.fire({
-        title: '{$_SESSION['msg']}',
-        text: '{$_SESSION['alertMsg']}',
-        icon: '{$_SESSION['alertIcon']}'
-    });
-</script>";
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                title: '$msg',
+                text: '$alertMsg',
+                icon: '$alertIcon'
+            });
+        });
+    </script>";
+
     unset($_SESSION["msg"]);
     unset($_SESSION["alertMsg"]);
     unset($_SESSION["alertIcon"]);

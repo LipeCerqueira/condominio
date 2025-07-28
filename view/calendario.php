@@ -41,6 +41,16 @@ while ($e = mysqli_fetch_assoc($eventosQuery)) {
   $eventos[$dia][] = $e;
 }
 
+$coresAreas = [
+  '#ff9999',
+  '#99ccff',
+  '#99ff99',
+  '#ffcc99',
+  '#cc99ff',
+  '#ffff99',
+  '#ffb3e6'
+];
+
 $nomesMeses = ["", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 $nomesDias = ["Domingo", "Segunda-Feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
 ?>
@@ -77,14 +87,19 @@ $nomesDias = ["Domingo", "Segunda-Feira", "Terça-feira", "Quarta-feira", "Quint
 
 <table class="calendario">
   <tr>
-    <?php foreach ($nomesDias as $i => $dia): ?>
-      <th class="<?= ($i == 0 || $i == 6) ? 'sab' : '' ?>"><?= $dia ?></th>
+    <?php foreach ($nomesDias as $i => $diaSemana): ?>
+      <th class="<?= ($i == 0 || $i == 6) ? 'sab' : '' ?>"><?= $diaSemana ?></th>
     <?php endforeach; ?>
   </tr>
 
   <?php
+  function corArea($id_area, $coresAreas)
+  {
+    $index = $id_area % count($coresAreas);
+    return $coresAreas[$index];
+  }
+
   $dia = 1;
-  $semana = 0;
   echo "<tr>";
   for ($i = 0; $i < 7; $i++) {
     if ($i < $primeiroDiaSemana) {
@@ -93,15 +108,18 @@ $nomesDias = ["Domingo", "Segunda-Feira", "Terça-feira", "Quarta-feira", "Quint
       echo "<td><strong>$dia</strong>";
       if (isset($eventos[$dia])) {
         foreach ($eventos[$dia] as $ev) {
-          echo "<div class='evento'>" .
-            htmlspecialchars($ev['observacoes']) . " - " .
-            htmlspecialchars($ev['id_morador']) . "<br>" .
-            "<strong>Horário: " .
+          $cor = corArea($ev['id_area'], $coresAreas);
+          echo "<div class='evento' style=\"background:$cor;\">" .
+            "<strong>Área: " .
+            htmlspecialchars($ev['nome']) .
+            "<br>Horário: " .
             htmlspecialchars($ev['inicio']) . " - " .
             htmlspecialchars($ev['fim']) . "</strong><br>" .
-            "" . htmlspecialchars($ev['bloco']) . " - Número: " .
-            htmlspecialchars($ev['num_unidade']) . "<br>Área: " .
-            htmlspecialchars($ev['nome']) .
+            htmlspecialchars($ev['bloco']) . "- Número: " .
+            htmlspecialchars($ev['num_unidade']) . "<br>" .
+            htmlspecialchars($ev['observacoes']) . " - " .
+            htmlspecialchars($ev['id_morador']) . "<br>" .
+
             "</div>";
         }
       }
@@ -118,15 +136,18 @@ $nomesDias = ["Domingo", "Segunda-Feira", "Terça-feira", "Quarta-feira", "Quint
         echo "<td><strong>$dia</strong>";
         if (isset($eventos[$dia])) {
           foreach ($eventos[$dia] as $ev) {
-            echo "<div class='evento'>" .
-              htmlspecialchars($ev['observacoes']) . " - " .
-              htmlspecialchars($ev['id_morador']) . "<br>" .
-              "<strong>Horário: " .
+            $cor = corArea($ev['id_area'], $coresAreas);
+            echo "<div class='evento' style=\"background:$cor;\">" .
+              "<strong>Área: " .
+              htmlspecialchars($ev['nome']) .
+              "<br>Horário: " .
               htmlspecialchars($ev['inicio']) . " - " .
               htmlspecialchars($ev['fim']) . "</strong><br>" .
-              "" . htmlspecialchars($ev['bloco']) . " - Número: " .
-              htmlspecialchars($ev['num_unidade']) . "<br>Área: " .
-              htmlspecialchars($ev['nome']) .
+              htmlspecialchars($ev['bloco']) . "- Número: " .
+              htmlspecialchars($ev['num_unidade']) . "<br>" .
+              htmlspecialchars($ev['observacoes']) . " - " .
+              htmlspecialchars($ev['id_morador']) . "<br>" .
+
               "</div>";
           }
         }

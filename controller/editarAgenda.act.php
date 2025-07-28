@@ -16,6 +16,22 @@ if(antiInjection($morador) == 0 || antiInjection($area) == 0 || antiInjection($d
     exit;
 }
 
+
+$busca = mysqli_query($con, "SELECT * FROM agendamento_area_comum WHERE id_area = '$area' AND data_agendamento = '$data' AND(
+                    (hora_inicio < '$fim' AND hora_fim > '$inicio') AND id_agendamento != '$id' 
+                )");
+
+
+if ($busca->num_rows > 0) {
+    $_SESSION['msg'] = "Erro!";
+    $_SESSION['alertMsg'] = "Já existe um agendamento para essa área nesse período de tempo!";
+    $_SESSION['alertIcon'] = 'error';
+    $destino = "../view/listarAgendamentos.php";
+    header("Location:$destino");
+    exit();
+}
+
+
 if(mysqli_query($con, "update `agendamento_area_comum` set `id_morador` = '$morador',
                                             `id_area` = '$area',
                                             `unidade` = '$unidade',

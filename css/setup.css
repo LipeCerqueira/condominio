@@ -1776,6 +1776,7 @@ footer {
     border: 1px solid #444;
     width: 14.28%;
     vertical-align: top;
+
     height: 100px;
     padding: 4px;
     box-sizing: border-box;
@@ -1797,7 +1798,7 @@ footer {
   }
 
   #btnVoltar {
-    height: 50px;
+    height: 45px;
     border-radius: 5px;
     width: 80px;
     font-size: 18px;
@@ -1834,13 +1835,14 @@ footer {
   }
 
   .cabecalho button {
-    height: 40px;
+    height: 45px;
     border-radius: 5px;
     padding: 0 15px;
     font-size: 16px;
     background-color: var(--condo-navy);
     color: #ffffff;
     border: none;
+     border: 2px rgb(29, 29, 29) solid;
   }
 
   .evento {
@@ -1857,16 +1859,14 @@ footer {
     table.calendario th,
     table.calendario td {
       font-size: 12px;
-      height: auto;
-      padding: 2px;
+      height: 40px;
+      padding: 5px;
     }
     .cabecalho form {
       flex-direction: column;
       font-size: 16px;
     }
-    .cabecalho button {
-      width: 100%;
-    }
+    
     .evento {
       font-size: 0.7em;
     }
