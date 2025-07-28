@@ -22,7 +22,7 @@
 
 <?php
 
- @session_start();
+@session_start();
 if (isset($_SESSION["msg"]) && isset($_SESSION["alertIcon"])) {
     $msg = addslashes($_SESSION["msg"]);
     $alertMsg = isset($_SESSION["alertMsg"]) ? addslashes($_SESSION["alertMsg"]) : '';
@@ -62,7 +62,7 @@ if (isset($_SESSION["msg"]) && isset($_SESSION["alertIcon"])) {
                 <a href="adicionarAgenda.php" class="admin-button outline">Fazer Agendamento</a>
                 <a href="calendario.php" class="admin-button outline">Calendário</a>
                 <a href="painelDependencias.php" class="admin-button outline">Voltar</a>
-                
+
             </div>
 
 
@@ -87,7 +87,10 @@ if (isset($_SESSION["msg"]) && isset($_SESSION["alertIcon"])) {
 
                             require_once("../model/connect.php");
 
-                            $consulta = mysqli_query($con, "SELECT ag.*,a.*, DATE_FORMAT(ag.data_agendamento, '%d/%m/%Y') AS data_formatada,
+                            $consulta = mysqli_query($con, "SELECT ag.*,a.*, 
+                            DATE_FORMAT(ag.data_agendamento, '%d/%m/%Y') AS data_formatada,
+                            DATE_FORMAT(ag.hora_inicio, '%H:%i') AS inicio,
+                            DATE_FORMAT(ag.hora_fim, '%H:%i') AS fim,
                             u.unidade AS num_unidade 
                             FROM `agendamento_area_comum` ag 
                             INNER JOIN area a ON ag.id_area = a.id_area
@@ -104,8 +107,8 @@ if (isset($_SESSION["msg"]) && isset($_SESSION["alertIcon"])) {
                                     <td><?= $agenda['nome'] ?></td>
                                     <td><?= $agenda['num_unidade'] ?></td>
                                     <td><?= $agenda['data_formatada'] ?></td>
-                                    <td><?= $agenda['hora_inicio'] ?></td>
-                                    <td><?= $agenda['hora_fim'] ?></td>
+                                    <td><?= $agenda['inicio'] ?></td>
+                                    <td><?= $agenda['fim'] ?></td>
 
 
                                     <!-- <td>
@@ -128,33 +131,33 @@ if (isset($_SESSION["msg"]) && isset($_SESSION["alertIcon"])) {
                                         </button>
                                         <?php
 
-        //                                 if ($agenda['status'] == '1') {
-        //                                     echo '<button class="admin-button small destructive" onclick="mudarStatus('
-        //                                         . $agenda['id_agendamento'] . ', '
-        //                                         . $agenda['status'] . ')">
-        // <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
-        //     <path d="M12 20h9"></path>
-        //     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-        // </svg> Inativar</button>';
-        //                                 } else {
-        //                                     echo '<button class="admin-button small destructive" onclick="mudarStatus('
-        //                                         . $agenda['id_area'] . ', '
-        //                                         . $agenda['status'] . ')">
-        // <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
-        //     <path d="M12 20h9"></path>
-        //     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-        // </svg> Ativar</button>';
-        //                                 }
+                                        //                                 if ($agenda['status'] == '1') {
+                                        //                                     echo '<button class="admin-button small destructive" onclick="mudarStatus('
+                                        //                                         . $agenda['id_agendamento'] . ', '
+                                        //                                         . $agenda['status'] . ')">
+                                        // <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                                        //     <path d="M12 20h9"></path>
+                                        //     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                                        // </svg> Inativar</button>';
+                                        //                                 } else {
+                                        //                                     echo '<button class="admin-button small destructive" onclick="mudarStatus('
+                                        //                                         . $agenda['id_area'] . ', '
+                                        //                                         . $agenda['status'] . ')">
+                                        // <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                                        //     <path d="M12 20h9"></path>
+                                        //     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                                        // </svg> Ativar</button>';
+                                        //                                 }
                                         ?>
 
-                                    <!-- </td>
+                                        <!-- </td>
                                 </tr> -->
 
-                            <?php
-                            }
+                                    <?php
+                                }
 
 
-                            ?>
+                                    ?>
                         </tbody>
                     </table>
                 </div>
